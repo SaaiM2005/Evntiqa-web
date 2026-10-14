@@ -53,7 +53,7 @@ export const LogoStrip: React.FC = () => {
   };
 
   return (
-    <section className="w-full border-t border-[#E8E3D9] pt-6 pb-10" aria-label="Partner and Client Logos">
+    <section id="accounts" className="w-full border-t border-[#E8E3D9] pt-6 pb-10 scroll-mt-28" aria-label="Partner and Client Logos">
       {/* Top Label and Controls */}
       <div className="flex items-center justify-between mb-6">
         <span className="font-['Montserrat'] font-semibold text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#787570]">

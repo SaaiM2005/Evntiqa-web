@@ -4,7 +4,7 @@ import { trackCtaClick } from '../utils/analytics';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full bg-warm-dots overflow-hidden pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-12 md:pb-16" aria-label="Hero Section">
+    <section id="hero" className="relative w-full bg-warm-dots overflow-hidden pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-12 md:pb-16 scroll-mt-28" aria-label="Hero Section">
       <div className="relative max-w-[1400px] 2xl:max-w-[1520px] mx-auto w-full px-6 sm:px-10 lg:px-14 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 xl:gap-6 items-center">
           

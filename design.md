@@ -18,17 +18,20 @@
 
 ## 2. Color Palette
 
-### Base & Backgrounds
-- **Warm Editorial Canvas:** `#FAF8F5` / `#F7F5F0` (light warm cream background with subtle paper/editorial grain)
-- **Primary Ink / Contrast Dark:** `#111111` / `#0D0D0D` (deep editorial charcoal/black for text & brutalist borders)
-- **Secondary Ink / Slate:** `#55534E` / `#6B6860` (refined muted gray for body descriptions and secondary metadata)
-- **Border / Divider Rule:** `#E7E3DA` / `#DDD7CB` (fine Swiss architectural grid lines)
+| Color Name | Hex Code | Role & Usage |
+|---|---|---|
+| **Navy** | `#101D32` | Primary brand dark, dominant text ink, high-contrast headings, dark hero elements, cards, and primary buttons |
+| **Slate Blue** | `#243D59` | Secondary background / structure, active indicators, sub-headers, borders, and elevated surfaces |
+| **Warm White** | `#F7F6F2` | Primary canvas & background, card surfaces, clean negative space, and warm editorial paper tone |
+| **Muted Gold** | `#D7B77A` | Premium accent color, focal highlights, italic serif callouts, active indicators, badges, and sparks |
+| **Steel** | `#687587` | Muted secondary text, captions, metadata tags, hairline architectural borders, and divider rules |
 
-### Accent Colors
-- **Vibrant Orange / Coral:** `#FF5A1F` / `#F2542D` (energetic focal accent for geometry circles, highlights, and accent words)
-- **Forest Green / Sage Accent:** `#3B7E63` / `#A5C4B5` (tape accents, subtle badges)
-- **Editorial Pink / Masking Tape:** `#F8A5C2` (masking tape overlays, editorial tags)
-- **Sticky Note Canary:** `#FBF2D5` / `#F7EBBF` (editorial sticky note cutout paper)
+### Palette Token Mapping
+- **Canvas / Background:** `#F7F6F2` (Warm white)
+- **Primary Ink / Contrast Dark:** `#101D32` (Navy)
+- **Secondary Structure / Deep Accent:** `#243D59` (Slate blue)
+- **Primary Accent & Highlight:** `#D7B77A` (Muted gold)
+- **Muted Text & Architectural Dividers:** `#687587` (Steel)
 
 ---
 
