@@ -101,7 +101,7 @@ export const Hero: React.FC = () => {
 
           {/* ================= RIGHT COLUMN: LARGER COLLAGE ARTWORK ================= */}
           <div className="lg:col-span-5 xl:col-span-5 relative flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div className="relative w-full max-w-[600px] sm:max-w-[680px] lg:max-w-none lg:w-[125%] xl:w-[132%] lg:-ml-[25%] xl:-ml-[32%]">
+            <div className="relative w-full max-w-[640px] sm:max-w-[720px] lg:max-w-none lg:w-[135%] xl:w-[144%] 2xl:w-[150%] lg:-ml-[35%] xl:-ml-[44%] 2xl:-ml-[50%]">
               {/* Transparent Collage PNG */}
               <img
                 src="/images/hero-collage.png"
