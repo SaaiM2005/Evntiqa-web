@@ -3,7 +3,8 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { LogoStrip } from './components/LogoStrip';
 import { TargetAccountsSection } from './components/TargetAccountsSection';
-import { SolutionsSection } from './components/SolutionsSection';
+import { EngagementFormatsSection } from './components/EngagementFormatsSection';
+import { ExecutionEngineSection } from './components/ExecutionEngineSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { ContactSection } from './components/ContactSection';
 import { CalendarModal } from './components/CalendarModal';
@@ -76,8 +77,11 @@ export default function App() {
             {/* Section 2: Turn Target Accounts into Active Pipeline */}
             <TargetAccountsSection />
 
-            {/* Section 3 & 4: Solutions Section */}
-            <SolutionsSection />
+            {/* Section 3: Engagement Formats Built for Pipeline */}
+            <EngagementFormatsSection />
+
+            {/* Section 4: 4-Phase Execution Engine */}
+            <ExecutionEngineSection />
 
             {/* Section 5 & 6: Case Studies Section */}
             <CaseStudiesSection />
