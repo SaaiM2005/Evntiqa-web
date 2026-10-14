@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { LogoStrip } from './components/LogoStrip';
+import { TargetAccountsSection } from './components/TargetAccountsSection';
 import { SolutionsSection } from './components/SolutionsSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { ContactSection } from './components/ContactSection';
@@ -67,10 +68,13 @@ export default function App() {
             {/* Section 1: Hero Section */}
             <Hero />
 
-            {/* Section 2: Accounts We Activate (LogoStrip) */}
+            {/* Social Proof: Engaging Global Enterprise CISOs (LogoStrip) */}
             <div className="w-full max-w-[1400px] 2xl:max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16">
               <LogoStrip />
             </div>
+
+            {/* Section 2: Turn Target Accounts into Active Pipeline */}
+            <TargetAccountsSection />
 
             {/* Section 3 & 4: Solutions Section */}
             <SolutionsSection />
