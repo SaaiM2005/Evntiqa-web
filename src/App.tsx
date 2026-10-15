@@ -5,6 +5,7 @@ import { LogoStrip } from './components/LogoStrip';
 import { TargetAccountsSection } from './components/TargetAccountsSection';
 import { EngagementFormatsSection } from './components/EngagementFormatsSection';
 import { ExecutionEngineSection } from './components/ExecutionEngineSection';
+import { ProvenResultsSection } from './components/ProvenResultsSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { ContactSection } from './components/ContactSection';
 import { CalendarModal } from './components/CalendarModal';
@@ -83,7 +84,10 @@ export default function App() {
             {/* Section 4: 4-Phase Execution Engine */}
             <ExecutionEngineSection />
 
-            {/* Section 5 & 6: Case Studies Section */}
+            {/* Section 5: Proven Results Across Enterprise ABM */}
+            <ProvenResultsSection />
+
+            {/* Section 6: Case Studies & Executive Spotlight */}
             <CaseStudiesSection />
 
             {/* Destination for "Talk to an ABM Expert" */}
