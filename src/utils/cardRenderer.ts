@@ -112,42 +112,22 @@ export function renderStepCardCanvas(
   ctx.fillText(data.step, width - paddingX, 60);
   ctx.restore();
 
-  // 3. Top Row: Step Badge / Pill
-  const pillX = paddingX;
-  const pillY = 56;
-  const pillW = 142;
-  const pillH = 40;
-  const pillR = 20;
-
+  // 3. Top Row: Step Label (Simple clean typography, no icon or badge)
   ctx.save();
-  roundRect(ctx, pillX, pillY, pillW, pillH, pillR);
-  ctx.fillStyle = isDark ? 'rgba(255, 90, 31, 0.14)' : 'rgba(255, 90, 31, 0.09)';
-  ctx.fill();
-  ctx.strokeStyle = isDark ? 'rgba(255, 90, 31, 0.35)' : 'rgba(255, 90, 31, 0.28)';
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-
-  // Glowing dot inside pill
-  ctx.beginPath();
-  ctx.arc(pillX + 22, pillY + pillH / 2, 4.5, 0, Math.PI * 2);
-  ctx.fillStyle = '#FF5A1F';
-  ctx.fill();
-
-  // Pill text
-  ctx.font = '700 15px "Montserrat", -apple-system, sans-serif';
+  ctx.font = '700 26px "Plus Jakarta Sans", "Montserrat", system-ui, -apple-system, sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = isDark ? '#FF7A45' : '#FF5A1F';
-  ctx.fillText(`STEP ${data.step}`, pillX + 36, pillY + pillH / 2);
+  ctx.fillText(`STEP ${data.step}`, paddingX, 74);
   ctx.restore();
 
   // 4. Top Right: Minimal Step Progress Counter
   ctx.save();
-  ctx.font = '600 16px "Montserrat", -apple-system, sans-serif';
+  ctx.font = '600 20px "Plus Jakarta Sans", "Montserrat", system-ui, -apple-system, sans-serif';
   ctx.textAlign = 'right';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.35)' : '#8E8A82';
-  ctx.fillText(`${data.step} / 06`, width - paddingX, pillY + pillH / 2);
+  ctx.fillText(`${data.step} / 06`, width - paddingX, 74);
   ctx.restore();
 
   // 5. Subtle horizontal divider
