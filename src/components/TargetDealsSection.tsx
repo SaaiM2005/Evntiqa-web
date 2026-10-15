@@ -62,7 +62,7 @@ export const TargetDealsSection: React.FC = () => {
     <section
       ref={containerRef}
       id="deals"
-      className="w-full py-20 sm:py-28 lg:py-32 border-t border-[#E8E3D9] scroll-mt-28 relative overflow-hidden bg-[#FAF8F5]"
+      className="w-full pt-20 sm:pt-28 lg:pt-32 pb-36 sm:pb-48 lg:pb-56 border-t border-[#E8E3D9] scroll-mt-28 relative overflow-hidden bg-[#FAF8F5]"
       aria-label="Turn Target Accounts into Deals"
     >
       {/* Background architectural dot pattern matching FAQ */}
@@ -109,8 +109,8 @@ export const TargetDealsSection: React.FC = () => {
           </div>
 
           {/* ================= RIGHT COLUMN: SCROLL-TO-REVEAL METRICS CARD ================= */}
-          <div className="lg:col-span-7 flex flex-col">
-            <div className="relative overflow-hidden w-full bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-[#E8E3D9] p-5 sm:p-8 lg:p-10 shadow-[0_12px_44px_-8px_rgba(16,29,50,0.06),0_0_0_1px_rgba(255,255,255,0.8)] hover:shadow-[0_20px_56px_-10px_rgba(255,90,31,0.12)] transition-shadow duration-500">
+          <div className="lg:col-span-7 flex flex-col relative">
+            <div className="relative overflow-hidden w-full bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-[#E8E3D9] p-5 sm:p-8 lg:p-10 shadow-[0_12px_44px_-8px_rgba(16,29,50,0.06),0_0_0_1px_rgba(255,255,255,0.8)] hover:shadow-[0_20px_56px_-10px_rgba(255,90,31,0.12)] transition-shadow duration-500 z-10">
               {/* Scroll-driven top hairline accent in brand orange */}
               <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-[#EFECE6] pointer-events-none">
                 <motion.div
@@ -171,6 +171,23 @@ export const TargetDealsSection: React.FC = () => {
                 })}
               </div>
             </div>
+
+            {/* Handshake Deals Illustration shifted to bottom-right corner completely, slightly overlapping card bottom */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.88, y: 24, rotate: -7 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0, rotate: -7 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute bottom-0 right-0 translate-x-[18%] translate-y-[50%] sm:translate-x-[22%] sm:translate-y-[54%] md:translate-x-[25%] md:translate-y-[58%] z-20 pointer-events-none select-none -rotate-[7deg]"
+              aria-hidden="true"
+            >
+              <img
+                src="/images/deals-handshake.png"
+                alt="Executive Deal Handshake"
+                className="w-[220px] sm:w-[270px] md:w-[330px] lg:w-[390px] xl:w-[430px] 2xl:w-[460px] h-auto object-contain drop-shadow-[0_24px_50px_rgba(16,29,50,0.18)]"
+                loading="eager"
+              />
+            </motion.div>
           </div>
 
         </div>
