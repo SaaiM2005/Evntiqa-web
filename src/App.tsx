@@ -7,7 +7,7 @@ import { EngagementFormatsSection } from './components/EngagementFormatsSection'
 import { ExecutionEngineSection } from './components/ExecutionEngineSection';
 import { ProvenResultsSection } from './components/ProvenResultsSection';
 import { FAQSection } from './components/FAQSection';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
+import { TargetDealsSection } from './components/TargetDealsSection';
 import { ContactSection } from './components/ContactSection';
 import { CalendarModal } from './components/CalendarModal';
 import { BlogsPage } from './components/BlogsPage';
@@ -91,8 +91,8 @@ export default function App() {
             {/* Section 6: Frequently Asked Questions */}
             <FAQSection />
 
-            {/* Executive Spotlight & Testimonials */}
-            <CaseStudiesSection />
+            {/* Turn Target Accounts into Deals */}
+            <TargetDealsSection />
 
             {/* Destination for "Talk to an ABM Expert" */}
             <ContactSection />
