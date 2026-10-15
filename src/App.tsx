@@ -6,6 +6,7 @@ import { TargetAccountsSection } from './components/TargetAccountsSection';
 import { EngagementFormatsSection } from './components/EngagementFormatsSection';
 import { ExecutionEngineSection } from './components/ExecutionEngineSection';
 import { ProvenResultsSection } from './components/ProvenResultsSection';
+import { FAQSection } from './components/FAQSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { ContactSection } from './components/ContactSection';
 import { CalendarModal } from './components/CalendarModal';
@@ -87,7 +88,10 @@ export default function App() {
             {/* Section 5: Proven Results Across Enterprise ABM */}
             <ProvenResultsSection />
 
-            {/* Section 6: Case Studies & Executive Spotlight */}
+            {/* Section 6: Frequently Asked Questions */}
+            <FAQSection />
+
+            {/* Executive Spotlight & Testimonials */}
             <CaseStudiesSection />
 
             {/* Destination for "Talk to an ABM Expert" */}

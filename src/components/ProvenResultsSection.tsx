@@ -29,16 +29,16 @@ export const ProvenResultsSection: React.FC = () => {
     offset: ['start end', 'end start'],
   });
 
-  // 1. Scroll-to-reveal: brackets fade in and smoothly glide inward from the sides
-  const bracketOpacity = useTransform(scrollYProgress, [0.08, 0.28], [0, 1]);
-  const leftBracketX = useTransform(scrollYProgress, [0.08, 0.28], [-30, 0]);
-  const rightBracketX = useTransform(scrollYProgress, [0.08, 0.28], [30, 0]);
+  // 1. Scroll-to-reveal: brackets fade in and smoothly glide inward as user enters the section completely
+  const bracketOpacity = useTransform(scrollYProgress, [0.22, 0.46], [0, 1]);
+  const leftBracketX = useTransform(scrollYProgress, [0.22, 0.46], [-75, 0]);
+  const rightBracketX = useTransform(scrollYProgress, [0.22, 0.46], [75, 0]);
 
-  // 2. Growth phase: as user hits the last area of this section, brackets slightly increase in size
+  // 2. Growth phase: settles at 1.0 when entered, then as user hits the last area of this section, brackets slightly increase in size
   const bracketScale = useTransform(
     scrollYProgress,
-    [0.28, 0.55, 0.85],
-    [1.0, 1.0, 1.18]
+    [0.22, 0.46, 0.65, 0.88],
+    [0.92, 1.0, 1.0, 1.20]
   );
 
   return (

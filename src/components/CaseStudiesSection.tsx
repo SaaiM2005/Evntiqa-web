@@ -9,7 +9,7 @@ export const CaseStudiesSection: React.FC = () => {
           <div className="flex items-center gap-2.5 mb-4">
             <Quote className="w-4 h-4 text-[#FF5A1F]" />
             <span className="font-['Montserrat'] font-semibold text-xs uppercase tracking-[0.22em] text-[#55534E]">
-              SECTION 06 • EXECUTIVE SPOTLIGHT
+              EXECUTIVE SPOTLIGHT • CLIENT IMPACT
             </span>
           </div>
 
