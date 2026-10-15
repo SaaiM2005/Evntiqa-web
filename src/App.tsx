@@ -14,32 +14,61 @@ import { BlogsPage } from './components/BlogsPage';
 import { AboutPage } from './components/AboutPage';
 import { Footer } from './components/Footer';
 
+const normalizeRoute = (pathname: string, hash: string): string => {
+  // 1. Support hash routing fallback (e.g. #/blogs or #blogs)
+  const cleanHash = hash.replace(/^#\/?/, '');
+  if (cleanHash === 'blogs') return '/blogs';
+  if (cleanHash === 'about') return '/about';
+
+  // 2. Normalize path relative to Vite's base URL (e.g. /Evntiqa-web/)
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  let rel = pathname;
+  if (base && rel.startsWith(base)) {
+    rel = rel.slice(base.length);
+  }
+  if (!rel.startsWith('/')) rel = '/' + rel;
+  if (rel.length > 1 && rel.endsWith('/')) rel = rel.slice(0, -1);
+
+  if (rel === '/blogs' || rel === '/about') return rel;
+  return '/';
+};
+
+const toFullPath = (route: string): string => {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const clean = route.startsWith('/') ? route : `/${route}`;
+  return clean === '/' ? (base ? `${base}/` : '/') : `${base}${clean}`;
+};
+
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
-      const path = window.location.pathname;
-      if (path === '/blogs' || path === '/about') return path;
+      return normalizeRoute(window.location.pathname, window.location.hash);
     }
     return '/';
   });
 
   const [calendarModalOpen, setCalendarModalOpen] = useState(false);
 
-  // Sync browser back/forward buttons
+  // Sync browser back/forward buttons and hash navigation
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname;
-      setCurrentPath(path === '/blogs' || path === '/about' ? path : '/');
+      setCurrentPath(normalizeRoute(window.location.pathname, window.location.hash));
     };
 
     window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
+    };
   }, []);
 
   const handleNavigate = (path: string) => {
-    setCurrentPath(path);
+    const cleanRoute = path === '/blogs' || path === '/about' ? path : '/';
+    setCurrentPath(cleanRoute);
     try {
-      window.history.pushState(null, '', path);
+      const full = toFullPath(cleanRoute);
+      window.history.pushState(null, '', full);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
       // fallback

@@ -63,24 +63,42 @@ export const Header: React.FC<HeaderProps> = ({
     if (item.href === '/blogs' || item.href === '/about') {
       if (onNavigate) {
         onNavigate(item.href);
-      } else {
-        window.location.href = item.href;
       }
       return;
     }
 
-    if (item.href === '#hero' && (currentPath === '/blogs' || currentPath === '/about')) {
-      if (onNavigate) {
-        onNavigate('/');
-      } else {
-        window.location.href = '/';
+    if (item.href?.startsWith('#')) {
+      if (currentPath === '/blogs' || currentPath === '/about') {
+        if (onNavigate) {
+          onNavigate('/');
+          const targetId = item.href.slice(1);
+          setTimeout(() => {
+            const el = document.getElementById(targetId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
+        return;
       }
-      return;
+
+      const target = document.querySelector(item.href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   const handleCtaClick = () => {
     trackCtaClick('Talk to an ABM Expert (Header)', '#contact');
+    if (currentPath === '/blogs' || currentPath === '/about') {
+      if (onNavigate) {
+        onNavigate('/');
+        setTimeout(() => {
+          const el = document.getElementById('contact');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+      return;
+    }
     const el = document.getElementById('contact');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });

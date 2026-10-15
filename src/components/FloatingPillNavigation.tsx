@@ -120,7 +120,7 @@ export const FloatingPillNavigation: React.FC<FloatingPillNavigationProps> = ({
             // ignore state push if restricted
           }
         }
-      } else {
+      } else if (!onItemClick) {
         window.location.assign(finalHref);
       }
     }
