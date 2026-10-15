@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface AccountCard {
   id: string;
@@ -55,42 +55,25 @@ export const TargetAccountsSection: React.FC = () => {
   });
 
   // 1. Dark rectangular block reveal: rises directly from the bottom of the section
-  const darkBlockTranslateY = useTransform(scrollYProgress, [0.26, 0.40], ['100%', '0%']);
-  const darkBlockOpacity = useTransform(scrollYProgress, [0.26, 0.36], [0, 1]);
+  const darkBlockTranslateY = useTransform(scrollYProgress, [0.08, 0.22], ['100%', '0%']);
+  const darkBlockOpacity = useTransform(scrollYProgress, [0.08, 0.18], [0, 1]);
 
   // 2. Sequential card entrance from the RIGHT side of the screen
   // Card 01 -> settles in Column 1
-  const card1Opacity = useTransform(scrollYProgress, [0.38, 0.48], [0, 1]);
-  const card1X = useTransform(scrollYProgress, [0.38, 0.52], [1000, 0]);
+  const card1Opacity = useTransform(scrollYProgress, [0.18, 0.28], [0, 1]);
+  const card1X = useTransform(scrollYProgress, [0.18, 0.32], [1000, 0]);
 
   // Card 02 -> settles in Column 2
-  const card2Opacity = useTransform(scrollYProgress, [0.52, 0.62], [0, 1]);
-  const card2X = useTransform(scrollYProgress, [0.52, 0.66], [1000, 0]);
+  const card2Opacity = useTransform(scrollYProgress, [0.32, 0.42], [0, 1]);
+  const card2X = useTransform(scrollYProgress, [0.32, 0.46], [1000, 0]);
 
   // Card 03 -> settles in Column 3
-  const card3Opacity = useTransform(scrollYProgress, [0.66, 0.76], [0, 1]);
-  const card3X = useTransform(scrollYProgress, [0.66, 0.80], [1000, 0]);
+  const card3Opacity = useTransform(scrollYProgress, [0.46, 0.56], [0, 1]);
+  const card3X = useTransform(scrollYProgress, [0.46, 0.60], [1000, 0]);
 
   // Card 04 -> settles in Column 4
-  const card4Opacity = useTransform(scrollYProgress, [0.80, 0.90], [0, 1]);
-  const card4X = useTransform(scrollYProgress, [0.80, 0.94], [1000, 0]);
-
-  // 3. Sharp Growth Trendline Chart: starts growing smoothly as soon as section enters viewport
-  const rawLineProgress = useTransform(scrollYProgress, [0.01, 0.28], [0, 1]);
-  // Spring physics for buttery-smooth momentum flow as user scrolls
-  const smoothLineProgress = useSpring(rawLineProgress, {
-    stiffness: 90,
-    damping: 22,
-    mass: 0.5,
-    restDelta: 0.001,
-  });
-
-  // Area fill reveals smoothly in sync with the line
-  const fillClipWidth = useTransform(smoothLineProgress, [0, 1], [25, 1000]);
-
-  // Summit accent beacon scale and opacity
-  const summitOpacity = useTransform(smoothLineProgress, [0.90, 1], [0, 1]);
-  const summitScale = useTransform(smoothLineProgress, [0.88, 1], [0.2, 1]);
+  const card4Opacity = useTransform(scrollYProgress, [0.60, 0.70], [0, 1]);
+  const card4X = useTransform(scrollYProgress, [0.60, 0.74], [1000, 0]);
 
   const cardMotionValues = [
     { opacity: card1Opacity, x: card1X },
@@ -103,134 +86,17 @@ export const TargetAccountsSection: React.FC = () => {
     <section
       ref={containerRef}
       id="accounts"
-      className="relative w-full h-[260vh] scroll-mt-28"
+      className="relative w-full h-[220vh] scroll-mt-28"
       aria-label="Target Account Activation"
     >
       {/* Sticky viewport frame that locks during scrolling */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-end overflow-hidden bg-warm-dots">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden bg-warm-dots">
         
-        {/* ================= TOP AREA: ANIMATED MINIMALIST GROWTH GRAPH + HEADLINE ================= */}
-        <div className="w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 mb-2 sm:mb-3 z-10">
-          
-          {/* 1. Sharp Minimalist Growth Line Graph matching user sketched trajectory */}
-          <div className="w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[270px] mb-1 sm:mb-2 overflow-visible select-none">
-            <svg
-              viewBox="0 0 1000 240"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full overflow-visible"
-              preserveAspectRatio="none"
-              aria-label="Account acceleration growth line trajectory"
-            >
-              <defs>
-                {/* Champagne Gold area gradient matching Muted Gold theme */}
-                <linearGradient id="sharpGoldGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#D7B77A" stopOpacity="0.22" />
-                  <stop offset="60%" stopColor="#D7B77A" stopOpacity="0.05" />
-                  <stop offset="100%" stopColor="#FAF8F5" stopOpacity="0" />
-                </linearGradient>
-
-                {/* Sharp gradient along the growth line: Navy -> Gold -> Brand Orange breakout */}
-                <linearGradient id="sharpLineGradient" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#1B3152" />
-                  <stop offset="35%" stopColor="#243D59" />
-                  <stop offset="65%" stopColor="#D7B77A" />
-                  <stop offset="85%" stopColor="#D7B77A" />
-                  <stop offset="100%" stopColor="#FF5A1F" />
-                </linearGradient>
-
-                {/* Smooth area fill clip expanding in sync with line flow */}
-                <clipPath id="chartAreaClip">
-                  <motion.rect
-                    x="0"
-                    y="0"
-                    height="240"
-                    style={{ width: fillClipWidth }}
-                  />
-                </clipPath>
-              </defs>
-
-              {/* Faint Architectural Reference Gridlines */}
-              <line x1="25" y1="220" x2="940" y2="220" stroke="#101D32" strokeWidth="1" strokeOpacity="0.15" />
-              <line x1="25" y1="155" x2="940" y2="155" stroke="#101D32" strokeWidth="1" strokeOpacity="0.06" strokeDasharray="3 4" />
-              <line x1="25" y1="90" x2="940" y2="90" stroke="#101D32" strokeWidth="1" strokeOpacity="0.06" strokeDasharray="3 4" />
-              <line x1="25" y1="58" x2="940" y2="58" stroke="#D7B77A" strokeWidth="1" strokeOpacity="0.16" strokeDasharray="2 3" />
-              <line x1="25" y1="16" x2="940" y2="16" stroke="#101D32" strokeWidth="1" strokeOpacity="0.06" strokeDasharray="3 4" />
-
-              {/* Minimal Axis Vertical Ticks at reference inflection points */}
-              <line x1="25" y1="216" x2="25" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="150" y1="216" x2="150" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="270" y1="216" x2="270" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="400" y1="216" x2="400" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="530" y1="216" x2="530" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="660" y1="216" x2="660" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="780" y1="216" x2="780" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="860" y1="216" x2="860" y2="224" stroke="#687587" strokeWidth="1" strokeOpacity="0.3" />
-              <line x1="940" y1="216" x2="940" y2="224" stroke="#FF5A1F" strokeWidth="1.5" strokeOpacity="0.7" />
-
-              {/* Shaded Area fill under polyline (clipped to match line progression) */}
-              <g clipPath="url(#chartAreaClip)">
-                <path
-                  d="M 25 220 L 150 155 L 270 142 L 400 90 L 530 66 L 660 58 L 780 38 L 860 28 L 940 16 L 940 220 Z"
-                  fill="url(#sharpGoldGradient)"
-                />
-              </g>
-
-              {/* Sharp Growth Polyline matching user sketched trajectory:
-                  - Start: (25, 220)
-                  - Sharp rise under ZoomInfo/F-Secure: (150, 155)
-                  - Gentle rise under F-Secure: (270, 142)
-                  - Steep surge under Intel: (400, 90)
-                  - Steady advance under Infosys: (530, 66)
-                  - Plateau / consolidation under Trend Micro: (660, 58)
-                  - Strong climb across Trend Micro / Commvault: (780, 38)
-                  - Approach kink under Commvault: (860, 28)
-                  - Summit peak below carousel arrows: (940, 16)
-                  Animated with Framer Motion pathLength for silky-smooth vector flow */}
-              <motion.path
-                d="M 25 220 L 150 155 L 270 142 L 400 90 L 530 66 L 660 58 L 780 38 L 860 28 L 940 16"
-                fill="none"
-                stroke="url(#sharpLineGradient)"
-                strokeWidth="4"
-                strokeLinejoin="miter"
-                strokeMiterlimit="6"
-                strokeLinecap="round"
-                style={{ pathLength: smoothLineProgress }}
-              />
-
-              {/* Summit Marker: Crisp Brand Orange beacon at peak */}
-              <motion.circle
-                cx="940"
-                cy="16"
-                r="5.5"
-                fill="#FF5A1F"
-                stroke="#101D32"
-                strokeWidth="2"
-                style={{
-                  opacity: summitOpacity,
-                  scale: summitScale,
-                }}
-              />
-              <motion.circle
-                cx="940"
-                cy="16"
-                r="11"
-                fill="none"
-                stroke="#FF5A1F"
-                strokeWidth="1.5"
-                strokeOpacity="0.4"
-                style={{
-                  opacity: summitOpacity,
-                  scale: summitScale,
-                }}
-              />
-            </svg>
-          </div>
-
-          {/* 2. Headline & Subheadline */}
+        {/* ================= TOP AREA: HEADLINE & SUBHEADLINE (Centered in upper empty area) ================= */}
+        <div className="w-full flex-1 flex flex-col justify-center max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-4 sm:pt-6 pb-6 sm:pb-8 z-10">
           <div className="max-w-3xl">
             {/* Headline */}
-            <h2 className="font-['Plus_Jakarta_Sans'] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] text-[#101D32] tracking-tight leading-[1.1] mb-1.5 sm:mb-2">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] text-[#101D32] tracking-tight leading-[1.1] mb-2 sm:mb-2.5">
               Turn Target Accounts into Active{' '}
               <span className="font-['Playfair_Display'] italic font-normal text-[#D7B77A] inline-block selection:text-white">
                 Pipeline
@@ -257,7 +123,7 @@ export const TargetAccountsSection: React.FC = () => {
               y: darkBlockTranslateY,
               opacity: darkBlockOpacity,
             }}
-            className="absolute bottom-0 left-0 right-0 h-[240px] sm:h-[260px] md:h-[280px] w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto rounded-t-[32px] sm:rounded-t-[44px] bg-[#101D32] shadow-2xl z-0"
+            className="absolute bottom-0 left-0 right-0 h-[280px] sm:h-[310px] md:h-[330px] lg:h-[350px] w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto rounded-t-[32px] sm:rounded-t-[44px] bg-[#101D32] shadow-2xl z-0"
           >
             {/* Subtle architectural grid pattern inside dark block */}
             <div className="absolute inset-0 bg-blueprint-grid opacity-10 pointer-events-none rounded-t-[32px] sm:rounded-t-[44px]" />
@@ -267,7 +133,7 @@ export const TargetAccountsSection: React.FC = () => {
               Arranged in a 4-column grid spanning the container width.
               Cards enter one by one from the right side and stop at x = 0.
               At the end of scroll, all 4 cards are fully visible side-by-side without leaving the screen. */}
-          <div className="relative z-10 w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 pb-6 sm:pb-8 overflow-hidden">
+          <div className="relative z-10 w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 pb-24 sm:pb-28 lg:pb-32 overflow-hidden">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 w-full items-end">
               {accountCards.map((card, index) => {
                 const motionValues = cardMotionValues[index];
