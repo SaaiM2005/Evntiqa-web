@@ -11,10 +11,10 @@ const topRowLogos: ClientLogo[] = [
   { name: 'Infosys', src: '/logos/Infosys_transperent.png' },
   { name: 'Trend Micro', src: '/logos/trend-micro transperent.png' },
   { name: 'Commvault', src: '/logos/Commvault Monochrome Logo.png' },
-  { name: 'Informatica', src: '/logos/informatica_monochrome_transparent.png' },
 ];
 
 const bottomRowLogos: ClientLogo[] = [
+  { name: 'Informatica', src: '/logos/informatica_monochrome_transparent.png' },
   { name: 'ZoomInfo', src: '/logos/zoom-info transperent.png' },
   { name: 'F-Secure', src: '/logos/F-Secure Gray Logo on Transparency.png' },
 ];
@@ -85,36 +85,38 @@ export const ProvenResultsSection: React.FC = () => {
               See how cybersecurity leaders turn target accounts into pipeline.
             </p>
 
-            {/* Client Logos: 5 on Top Row, 2 on Bottom Row */}
+            {/* Client Logos: 4 on Top Row, 3 on Next Line */}
             <div className="w-full flex flex-col items-center justify-center">
-              {/* Top Row: 5 Logos */}
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-7 lg:gap-8 xl:gap-9 mb-6 sm:mb-8 md:mb-10">
-                {topRowLogos.map((logo) => (
-                  <div
-                    key={logo.name}
-                    className="flex items-center justify-center py-2 px-1 sm:px-1.5 transition-transform duration-300 hover:scale-105"
-                  >
-                    <img
-                      src={logo.src}
-                      alt={`${logo.name} logo`}
-                      className="h-6 sm:h-7 md:h-8 lg:h-8 max-w-[95px] sm:max-w-[110px] md:max-w-[125px] object-contain grayscale opacity-65 hover:opacity-100 hover:grayscale-0 transition-all duration-300 select-none"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+              {/* Top Row: 4 Logos (Intel, Infosys, Trend Micro, Commvault) */}
+              <div className="w-full max-w-[800px] mx-auto mb-6 sm:mb-8 md:mb-10">
+                <div className="grid grid-cols-4 items-center justify-items-center gap-3 sm:gap-6 md:gap-8 lg:gap-10">
+                  {topRowLogos.map((logo) => (
+                    <div
+                      key={logo.name}
+                      className="flex items-center justify-center w-full py-2 px-1 transition-transform duration-300 hover:scale-105"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={`${logo.name} logo`}
+                        className="h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 max-w-[110px] sm:max-w-[130px] md:max-w-[150px] lg:max-w-[165px] w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 select-none"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Bottom Row: 2 Logos */}
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-9 md:gap-11 lg:gap-13">
+              {/* Next Line: 3 Logos (Informatica, ZoomInfo, F-Secure) */}
+              <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-14 lg:gap-16">
                 {bottomRowLogos.map((logo) => (
                   <div
                     key={logo.name}
-                    className="flex items-center justify-center py-2 px-1 sm:px-1.5 transition-transform duration-300 hover:scale-105"
+                    className="flex items-center justify-center py-2 px-2 transition-transform duration-300 hover:scale-105"
                   >
                     <img
                       src={logo.src}
                       alt={`${logo.name} logo`}
-                      className="h-6 sm:h-7 md:h-8 lg:h-8 max-w-[105px] sm:max-w-[120px] md:max-w-[135px] object-contain grayscale opacity-65 hover:opacity-100 hover:grayscale-0 transition-all duration-300 select-none"
+                      className="h-8 sm:h-9 md:h-10 lg:h-11 xl:h-12 max-w-[120px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[175px] w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 select-none"
                       loading="lazy"
                     />
                   </div>
