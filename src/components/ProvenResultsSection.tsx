@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { FloatingAnimation } from './FloatingAnimation';
 
 interface ClientLogo {
   name: string;
@@ -48,7 +49,7 @@ export const ProvenResultsSection: React.FC = () => {
       className="w-full relative min-h-screen flex flex-col justify-center py-20 sm:py-28 md:py-36 border-t border-[#E8E3D9] scroll-mt-28 bg-[#FAF8F5] overflow-hidden"
       aria-label="Proven Results Across Enterprise ABM"
     >
-      <div className="w-full max-w-[1220px] xl:max-w-[1280px] 2xl:max-w-[1340px] mx-auto px-4 sm:px-6">
+      <div className="w-full max-w-[1220px] xl:max-w-[1280px] 2xl:max-w-[1340px] mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Flanking Layout: Brackets brought closer to snuggly embrace the content */}
         <div className="relative flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
@@ -146,6 +147,17 @@ export const ProvenResultsSection: React.FC = () => {
           </motion.div>
 
         </div>
+      </div>
+
+      {/* Floating Wave Animation at the bottom of the section */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <FloatingAnimation
+          colorStops={['#FF7545', '#FCE5D9', '#FAF8F5', '#FCE5D9', '#FF7545']}
+          amplitude={1.1}
+          blend={0.5}
+          speed={0.8}
+          invertY={true}
+        />
       </div>
     </section>
   );
