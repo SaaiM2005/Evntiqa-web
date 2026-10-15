@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { trackConversion } from '../utils/analytics';
-import { Check, Send, PhoneCall, ShieldCheck } from 'lucide-react';
+import { Check, Send, ShieldCheck } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -31,10 +31,10 @@ export const ContactSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             {/* Left Column: Value Prop */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F] text-xs font-['Montserrat'] font-semibold tracking-wider uppercase">
+              {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F] text-xs font-['Montserrat'] font-semibold tracking-wider uppercase">
                 <PhoneCall className="w-3.5 h-3.5" />
                 Executive ABM Consultation
-              </div>
+              </div> */}
 
               <h2 className="font-['Plus_Jakarta_Sans'] font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-[1.08]">
                 Talk to an ABM Expert about activating your target CISOs.

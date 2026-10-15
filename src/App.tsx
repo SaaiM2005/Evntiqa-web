@@ -12,6 +12,7 @@ import { ContactSection } from './components/ContactSection';
 import { CalendarModal } from './components/CalendarModal';
 import { BlogsPage } from './components/BlogsPage';
 import { AboutPage } from './components/AboutPage';
+import { Footer } from './components/Footer';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -101,54 +102,11 @@ export default function App() {
       </main>
 
       {/* Global Minimalist Footer */}
-      <footer className="w-full border-t border-[#E8E3D9] bg-[#FAF8F5] py-10 mt-16 text-sm text-[#787570]">
-        <div className="max-w-[1400px] 2xl:max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <span className="font-['Plus_Jakarta_Sans'] font-extrabold text-lg text-[#111111]">
-              evntiqa<span className="text-[#FF5A1F]">.</span>
-            </span>
-            <span className="text-xs text-[#8E8A82]">
-              — Executive CISO Roundtables built for pipeline acceleration.
-            </span>
-          </div>
-
-          <div className="flex items-center gap-6 text-xs font-['Inter']">
-            <a
-              href="https://thecisonews.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#111111] transition-colors"
-            >
-              TheCISOnews.com ↗
-            </a>
-            <button
-              type="button"
-              onClick={() => handleNavigate('/blogs')}
-              className="hover:text-[#111111] transition-colors cursor-pointer"
-            >
-              Blogs
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavigate('/about')}
-              className="hover:text-[#111111] transition-colors cursor-pointer"
-            >
-              About Evntiqa
-            </button>
-            <button
-              type="button"
-              onClick={() => setCalendarModalOpen(true)}
-              className="hover:text-[#111111] transition-colors cursor-pointer"
-            >
-              2027 Calendar
-            </button>
-          </div>
-
-          <div className="text-xs text-[#8E8A82]">
-            © 2026 Evntiqa Inc. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer
+        onNavigate={handleNavigate}
+        onOpenCalendar={() => setCalendarModalOpen(true)}
+        currentPath={currentPath}
+      />
     </div>
   );
 }
