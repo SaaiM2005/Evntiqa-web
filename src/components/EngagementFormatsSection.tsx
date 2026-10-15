@@ -1,5 +1,6 @@
 import React from 'react';
 import { CollapsingCards, type CollapsingCardItem } from './CollapsingCards';
+import { getAssetUrl } from '../utils/asset';
 
 const formats: CollapsingCardItem[] = [
   {
@@ -8,7 +9,7 @@ const formats: CollapsingCardItem[] = [
     title: 'ABM-Driven Virtual Roundtables',
     description:
       'Turn priority-account engagement into meaningful CISO conversations and stronger pipeline opportunities.',
-    image: '/images/format-01-roundtables.jpg',
+    image: getAssetUrl('/images/format-01-roundtables.jpg'),
   },
   {
     id: 'executive-dinners',
@@ -16,7 +17,7 @@ const formats: CollapsingCardItem[] = [
     title: 'In-Person Executive Dinners',
     description:
       'Build trusted executive relationships that open doors, deepen account engagement, and help advance strategic deals.',
-    image: '/images/format-02-dinners.jpg',
+    image: getAssetUrl('/images/format-02-dinners.jpg'),
   },
   {
     id: 'webinars',
@@ -24,7 +25,7 @@ const formats: CollapsingCardItem[] = [
     title: 'Webinars',
     description:
       'Expand your reach among security decision-makers, engage potential buyers, and create new sales conversations.',
-    image: '/images/format-03-webinars.jpg',
+    image: getAssetUrl('/images/format-03-webinars.jpg'),
   },
   {
     id: 'audience-acquisition',
@@ -32,7 +33,7 @@ const formats: CollapsingCardItem[] = [
     title: 'Audience Acquisition',
     description:
       'Reach the right security decision-makers to strengthen event attendance and engage priority accounts.',
-    image: '/images/format-04-audience.jpg',
+    image: getAssetUrl('/images/format-04-audience.jpg'),
   },
 ];
 

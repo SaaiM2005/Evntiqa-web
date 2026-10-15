@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { FloatingAnimation } from './FloatingAnimation';
+import { getAssetUrl } from '../utils/asset';
 
 interface ClientLogo {
   name: string;
@@ -8,16 +9,16 @@ interface ClientLogo {
 }
 
 const topRowLogos: ClientLogo[] = [
-  { name: 'Intel', src: '/logos/Intel_transperent.png' },
-  { name: 'Infosys', src: '/logos/Infosys_transperent.png' },
-  { name: 'Trend Micro', src: '/logos/trend-micro transperent.png' },
-  { name: 'Commvault', src: '/logos/Commvault Monochrome Logo.png' },
+  { name: 'Intel', src: getAssetUrl('/logos/Intel_transperent.png') },
+  { name: 'Infosys', src: getAssetUrl('/logos/Infosys_transperent.png') },
+  { name: 'Trend Micro', src: getAssetUrl('/logos/trend-micro transperent.png') },
+  { name: 'Commvault', src: getAssetUrl('/logos/Commvault Monochrome Logo.png') },
 ];
 
 const bottomRowLogos: ClientLogo[] = [
-  { name: 'Informatica', src: '/logos/informatica_monochrome_transparent.png' },
-  { name: 'ZoomInfo', src: '/logos/zoom-info transperent.png' },
-  { name: 'F-Secure', src: '/logos/F-Secure Gray Logo on Transparency.png' },
+  { name: 'Informatica', src: getAssetUrl('/logos/informatica_monochrome_transparent.png') },
+  { name: 'ZoomInfo', src: getAssetUrl('/logos/zoom-info transperent.png') },
+  { name: 'F-Secure', src: getAssetUrl('/logos/F-Secure Gray Logo on Transparency.png') },
 ];
 
 export const ProvenResultsSection: React.FC = () => {

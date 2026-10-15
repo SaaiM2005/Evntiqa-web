@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Clock, ArrowRight, ShieldCheck, Newspaper } from 'lucide-react';
 import { trackCtaClick } from '../utils/analytics';
+import { getAssetUrl } from '../utils/asset';
 
 interface BlogsPageProps {
   onBackToHome: () => void;
@@ -14,7 +15,7 @@ const blogPosts = [
     date: 'Oct 2026',
     excerpt:
       'Why peer-led invitation architectures outperform cold outbound by 8.4x in enterprise account activation and executive pipeline generation.',
-    image: '/images/hero-collage.png',
+    image: getAssetUrl('/images/hero-collage.png'),
   },
   {
     title: 'The 2027 CISO Priority Shift: From Tool Consolidation to Risk Resilience',
@@ -23,7 +24,7 @@ const blogPosts = [
     date: 'Sep 2026',
     excerpt:
       'Analyzing insights gathered across 45+ enterprise roundtables with Fortune 500 CISOs in North America and EMEA.',
-    image: '/images/hero-reference-full.jpg',
+    image: getAssetUrl('/images/hero-reference-full.jpg'),
   },
   {
     title: 'Account-Based Marketing for Cybersecurity: Beyond Display & Cold Calling',
@@ -32,7 +33,7 @@ const blogPosts = [
     date: 'Aug 2026',
     excerpt:
       'A practical framework for orchestrating high-touch executive roundtables that directly influence 7-figure enterprise deal velocity.',
-    image: '/images/hero-visual.png',
+    image: getAssetUrl('/images/hero-visual.png'),
   },
 ];
 

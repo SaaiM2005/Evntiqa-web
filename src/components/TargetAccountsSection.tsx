@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { getAssetUrl } from '../utils/asset';
 
 interface AccountCard {
   id: string;
@@ -16,7 +17,7 @@ const accountCards: AccountCard[] = [
     step: '01',
     title: 'Hard-to-Penetrate',
     description: 'Open doors to strategic accounts where executive access has been difficult.',
-    image: '/images/target-01-vault.jpg',
+    image: getAssetUrl('/images/target-01-vault.jpg'),
     imageAlt: 'Secure architectural corporate vault doors',
   },
   {
@@ -24,7 +25,7 @@ const accountCards: AccountCard[] = [
     step: '02',
     title: 'Dormant & Stalled',
     description: 'Restart conversations with accounts that have gone quiet.',
-    image: '/images/target-02-terracotta.jpg',
+    image: getAssetUrl('/images/target-02-terracotta.jpg'),
     imageAlt: 'Warm terracotta acoustic geometric architectural wall',
   },
   {
@@ -32,7 +33,7 @@ const accountCards: AccountCard[] = [
     step: '03',
     title: 'Active Opportunities',
     description: 'Deepen executive engagement and help move buying conversations forward.',
-    image: '/images/target-03-boardroom.jpg',
+    image: getAssetUrl('/images/target-03-boardroom.jpg'),
     imageAlt: 'Executive boardroom overlooking city skyline at dusk',
   },
   {
@@ -40,7 +41,7 @@ const accountCards: AccountCard[] = [
     step: '04',
     title: 'Net-New Accounts',
     description: 'Create first conversations with security leaders in new target accounts.',
-    image: '/images/target-04-atrium.jpg',
+    image: getAssetUrl('/images/target-04-atrium.jpg'),
     imageAlt: 'Corporate headquarters atrium staircase with stone paving',
   },
 ];
@@ -115,7 +116,7 @@ export const TargetAccountsSection: React.FC = () => {
           <div className="relative shrink-0 flex items-center justify-center mt-1 md:mt-0 md:-translate-y-4 lg:-translate-y-6 xl:-translate-y-8 md:translate-x-3 lg:translate-x-6 xl:translate-x-8">
             <div className="relative flex items-center justify-center">
               <img
-                src="/images/roundtable-aerial.png"
+                src={getAssetUrl('/images/roundtable-aerial.png')}
                 alt="Executive CISO Roundtable Discussion"
                 className="w-[230px] sm:w-[310px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[540px] max-h-[190px] sm:max-h-[260px] md:max-h-[320px] lg:max-h-[370px] xl:max-h-[420px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.12)] select-none pointer-events-none"
                 loading="eager"

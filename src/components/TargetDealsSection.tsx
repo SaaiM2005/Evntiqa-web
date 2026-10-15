@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { trackCtaClick } from '../utils/analytics';
+import { getAssetUrl } from '../utils/asset';
 
 interface MetricItem {
   stat: string;
@@ -182,7 +183,7 @@ export const TargetDealsSection: React.FC = () => {
               aria-hidden="true"
             >
               <img
-                src="/images/deals-handshake.png"
+                src={getAssetUrl('/images/deals-handshake.png')}
                 alt="Executive Deal Handshake"
                 className="w-[220px] sm:w-[270px] md:w-[330px] lg:w-[390px] xl:w-[430px] 2xl:w-[460px] h-auto object-contain drop-shadow-[0_24px_50px_rgba(16,29,50,0.18)]"
                 loading="eager"

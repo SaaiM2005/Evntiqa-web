@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { getAssetUrl } from '../utils/asset';
 
 interface LogoItem {
   name: string;
@@ -9,31 +10,31 @@ interface LogoItem {
 const clientLogos: LogoItem[] = [
   {
     name: 'Intel',
-    src: '/logos/Intel_transperent.png',
+    src: getAssetUrl('/logos/Intel_transperent.png'),
   },
   {
     name: 'Infosys',
-    src: '/logos/Infosys_transperent.png',
+    src: getAssetUrl('/logos/Infosys_transperent.png'),
   },
   {
     name: 'Trend Micro',
-    src: '/logos/trend-micro transperent.png',
+    src: getAssetUrl('/logos/trend-micro transperent.png'),
   },
   {
     name: 'Commvault',
-    src: '/logos/Commvault Monochrome Logo.png',
+    src: getAssetUrl('/logos/Commvault Monochrome Logo.png'),
   },
   {
     name: 'Informatica',
-    src: '/logos/informatica_monochrome_transparent.png',
+    src: getAssetUrl('/logos/informatica_monochrome_transparent.png'),
   },
   {
     name: 'ZoomInfo',
-    src: '/logos/zoom-info transperent.png',
+    src: getAssetUrl('/logos/zoom-info transperent.png'),
   },
   {
     name: 'F-Secure',
-    src: '/logos/F-Secure Gray Logo on Transparency.png',
+    src: getAssetUrl('/logos/F-Secure Gray Logo on Transparency.png'),
   },
 ];
 

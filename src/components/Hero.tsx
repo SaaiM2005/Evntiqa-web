@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
 import { trackCtaClick } from '../utils/analytics';
+import { getAssetUrl } from '../utils/asset';
 
 export const Hero: React.FC = () => {
   return (
@@ -104,7 +105,7 @@ export const Hero: React.FC = () => {
             <div className="relative w-full max-w-[640px] sm:max-w-[720px] lg:max-w-none lg:w-[135%] xl:w-[144%] 2xl:w-[150%] lg:-ml-[35%] xl:-ml-[44%] 2xl:-ml-[50%]">
               {/* Transparent Collage PNG */}
               <img
-                src="/images/hero-collage.png"
+                src={getAssetUrl('/images/hero-collage.png')}
                 alt="Executive CISO roundtable meeting collage with city skyline, notes and strategic tapes"
                 className="w-full h-auto object-contain select-none pointer-events-none drop-shadow-md"
                 loading="eager"
