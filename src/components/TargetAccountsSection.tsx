@@ -111,13 +111,13 @@ export const TargetAccountsSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Right: Enlarged Roundtable Aerial Visual (shifted to top-right, static) */}
-          <div className="relative shrink-0 flex items-center justify-center mt-2 md:mt-0 md:-translate-y-6 lg:-translate-y-10 xl:-translate-y-12 md:translate-x-4 lg:translate-x-8 xl:translate-x-12">
+          {/* Right: Enlarged Roundtable Aerial Visual (scaled to give room for cards) */}
+          <div className="relative shrink-0 flex items-center justify-center mt-1 md:mt-0 md:-translate-y-4 lg:-translate-y-6 xl:-translate-y-8 md:translate-x-3 lg:translate-x-6 xl:translate-x-8">
             <div className="relative flex items-center justify-center">
               <img
                 src="/images/roundtable-aerial.png"
                 alt="Executive CISO Roundtable Discussion"
-                className="w-[280px] sm:w-[380px] md:w-[460px] lg:w-[540px] xl:w-[620px] 2xl:w-[680px] max-h-[260px] sm:max-h-[350px] md:max-h-[430px] lg:max-h-[500px] xl:max-h-[560px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.12)] select-none pointer-events-none"
+                className="w-[230px] sm:w-[310px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[540px] max-h-[190px] sm:max-h-[260px] md:max-h-[320px] lg:max-h-[370px] xl:max-h-[420px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.12)] select-none pointer-events-none"
                 loading="eager"
               />
             </div>
@@ -125,7 +125,7 @@ export const TargetAccountsSection: React.FC = () => {
         </div>
 
         {/* ================= BOTTOM AREA: REVEALED DARK BLOCK & 4 CARDS ================= */}
-        {/* Positioned tightly below header text, flush at bottom of Section 2 */}
+        {/* Positioned tightly below header text, brought up so all card content is visible */}
         <div className="relative w-full overflow-hidden">
           
           {/* THE DARK RECTANGULAR BLOCK:
@@ -135,7 +135,7 @@ export const TargetAccountsSection: React.FC = () => {
               y: darkBlockTranslateY,
               opacity: darkBlockOpacity,
             }}
-            className="absolute bottom-0 left-0 right-0 h-[280px] sm:h-[310px] md:h-[330px] lg:h-[350px] w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto rounded-t-[32px] sm:rounded-t-[44px] bg-[#101D32] shadow-2xl z-0"
+            className="absolute bottom-0 left-0 right-0 h-[210px] sm:h-[225px] md:h-[240px] lg:h-[255px] w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto rounded-t-[32px] sm:rounded-t-[44px] bg-[#101D32] shadow-2xl z-0"
           >
             {/* Subtle architectural grid pattern inside dark block */}
             <div className="absolute inset-0 bg-blueprint-grid opacity-10 pointer-events-none rounded-t-[32px] sm:rounded-t-[44px]" />
@@ -145,7 +145,7 @@ export const TargetAccountsSection: React.FC = () => {
               Arranged in a 4-column grid spanning the container width.
               Cards enter one by one from the right side and stop at x = 0.
               At the end of scroll, all 4 cards are fully visible side-by-side without leaving the screen. */}
-          <div className="relative z-10 w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 pb-24 sm:pb-28 lg:pb-32 overflow-hidden">
+          <div className="relative z-10 w-full max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 pb-6 sm:pb-8 lg:pb-10 xl:pb-12 overflow-hidden">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 w-full items-end">
               {accountCards.map((card, index) => {
                 const motionValues = cardMotionValues[index];
