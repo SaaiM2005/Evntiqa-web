@@ -82,6 +82,9 @@ export const TargetAccountsSection: React.FC = () => {
     { opacity: card4Opacity, x: card4X },
   ];
 
+  // Subtle rotational drift for the roundtable aerial visual as user scrolls
+  const roundtableRotate = useTransform(scrollYProgress, [0, 1], [-6, 14]);
+
   return (
     <section
       ref={containerRef}
@@ -92,9 +95,10 @@ export const TargetAccountsSection: React.FC = () => {
       {/* Sticky viewport frame that locks during scrolling */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden bg-warm-dots">
         
-        {/* ================= TOP AREA: HEADLINE & SUBHEADLINE (Centered in upper empty area) ================= */}
-        <div className="w-full flex-1 flex flex-col justify-center max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-4 sm:pt-6 pb-6 sm:pb-8 z-10">
-          <div className="max-w-3xl">
+        {/* ================= TOP AREA: HEADLINE, SUBHEADLINE & ROUNDTABLE ================= */}
+        <div className="w-full flex-1 flex flex-col md:flex-row items-center justify-between max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-4 sm:pt-6 pb-2 sm:pb-4 z-10 relative">
+          {/* Left: Headline & Subheadline */}
+          <div className="max-w-xl xl:max-w-2xl 2xl:max-w-3xl z-10 w-full md:w-auto">
             {/* Headline */}
             <h2 className="font-['Plus_Jakarta_Sans'] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] text-[#101D32] tracking-tight leading-[1.1] mb-2 sm:mb-2.5">
               Turn Target Accounts into Active{' '}
@@ -110,6 +114,22 @@ export const TargetAccountsSection: React.FC = () => {
             </p>
           </div>
 
+          {/* Right: Enlarged Roundtable Aerial Visual (matches reference spot) */}
+          <div className="relative shrink-0 flex items-center justify-center mt-3 md:mt-0">
+            <motion.div
+              style={{
+                rotate: roundtableRotate,
+              }}
+              className="relative flex items-center justify-center"
+            >
+              <img
+                src="/images/roundtable-aerial.png"
+                alt="Executive CISO Roundtable Discussion"
+                className="w-[240px] sm:w-[320px] md:w-[380px] lg:w-[450px] xl:w-[500px] 2xl:w-[560px] max-h-[220px] sm:max-h-[280px] md:max-h-[340px] lg:max-h-[390px] xl:max-h-[440px] object-contain drop-shadow-[0_16px_30px_rgba(0,0,0,0.12)] select-none pointer-events-none"
+                loading="eager"
+              />
+            </motion.div>
+          </div>
         </div>
 
         {/* ================= BOTTOM AREA: REVEALED DARK BLOCK & 4 CARDS ================= */}
