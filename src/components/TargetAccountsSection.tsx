@@ -95,11 +95,11 @@ export const TargetAccountsSection: React.FC = () => {
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden bg-warm-dots pt-[68px] sm:pt-[76px] lg:pt-[84px]">
 
         {/* ================= TOP AREA: HEADLINE, SUBHEADLINE & ROUNDTABLE ================= */}
-        <div className="w-full flex-1 min-h-0 flex flex-col md:flex-row items-center justify-between max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-1 sm:pt-2 pb-1 z-10 relative">
+        <div className="w-full flex-1 min-h-0 flex flex-col md:flex-row items-center justify-between max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-2 sm:pt-4 pb-2 z-10 relative">
           {/* Left: Headline & Subheadline */}
           <div className="max-w-xl xl:max-w-2xl 2xl:max-w-3xl z-10 w-full md:w-auto">
             {/* Headline */}
-            <h2 className="font-['Plus_Jakarta_Sans'] font-extrabold text-2xl sm:text-3xl md:text-[32px] lg:text-[36px] xl:text-[38px] text-[#101D32] tracking-tight leading-[1.1] mb-1 sm:mb-1.5">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] 2xl:text-[46px] text-[#101D32] tracking-tight leading-[1.08] mb-2 sm:mb-2.5">
               Turn Target Accounts into Active{' '}
               <span className="font-['Playfair_Display'] italic font-normal text-[#D7B77A] inline-block selection:text-white">
                 Pipeline
@@ -108,18 +108,18 @@ export const TargetAccountsSection: React.FC = () => {
             </h2>
 
             {/* Subheadline */}
-            <p className="font-['Inter'] text-xs sm:text-sm md:text-base text-[#687587] leading-relaxed max-w-xl font-normal">
+            <p className="font-['Inter'] text-sm sm:text-base md:text-lg text-[#687587] leading-relaxed max-w-xl font-normal">
               Engage security leaders to move key accounts forward.
             </p>
           </div>
 
-          {/* Right: Scaled Roundtable Aerial Visual (strictly height-capped for all screen sizes) */}
-          <div className="relative shrink-0 flex items-center justify-center mt-1 md:mt-0 md:-translate-y-1 lg:-translate-y-2 md:translate-x-2 lg:translate-x-4">
+          {/* Right: Enlarged Roundtable Aerial Visual (scaled responsively to available height) */}
+          <div className="relative shrink-0 flex items-center justify-center mt-1 md:mt-0 md:-translate-y-2 lg:-translate-y-4 md:translate-x-3 lg:translate-x-6 xl:translate-x-8">
             <div className="relative flex items-center justify-center">
               <img
                 src={getAssetUrl('/images/roundtable-aerial.png')}
                 alt="Executive CISO Roundtable Discussion"
-                className="w-auto max-h-[90px] sm:max-h-[110px] md:max-h-[130px] lg:max-h-[150px] xl:max-h-[170px] max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[340px] xl:max-w-[380px] object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.10)] select-none pointer-events-none"
+                className="w-[230px] sm:w-[290px] md:w-[350px] lg:w-[420px] xl:w-[480px] 2xl:w-[530px] max-h-[24vh] sm:max-h-[28vh] md:max-h-[32vh] lg:max-h-[35vh] xl:max-h-[380px] object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.12)] select-none pointer-events-none"
                 loading="eager"
               />
             </div>
